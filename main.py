@@ -36,6 +36,14 @@ def formatted_string(some_string):
     return string
 
 
+def print_massages_to_user(data_a, data_b, score):
+    print_logo()
+    print(f"Actual score: {score}")
+    print(f"Compare A: {data_a}")
+    print_vs()
+    print(f"Against B: {data_b}")
+
+
 def game():
     data_index_a = generate_random_index()
     data_index_b = generate_random_index()
@@ -47,10 +55,7 @@ def game():
     user_score = 0
     user_choice = ""
 
-    print_logo()
-    print(f"Compare A: {data_compare_a}")
-    print_vs()
-    print(f"Against B: {data_compare_b}")
+    print_massages_to_user(data_compare_a, data_compare_b, user_score)
 
     while True:
         user_choice = input("Who has more followers? Type 'A' or 'B': ")
@@ -70,11 +75,7 @@ def game():
         data_compare_a = formatted_string(extract_data(data, data_index_a))
         data_compare_b = formatted_string(extract_data(data, data_index_b))
 
-        print_logo()
-        print(f"Actual score: {user_score}")
-        print(f"Compare A: {data_compare_a}")
-        print_vs()
-        print(f"Against B: {data_compare_b}")
+        print_massages_to_user(data_compare_a, data_compare_b, user_score)
 
 
 game()
